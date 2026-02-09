@@ -37,7 +37,13 @@ if (!config.isProduction) {
 }
 
 // Body parsing
-app.use(express.json({ limit: '1mb' }));
+// Keep a copy of the raw body for webhook signature verification.
+app.use(express.json({
+  limit: '1mb',
+  verify: (req, _res, buf) => {
+    req.rawBody = buf;
+  }
+}));
 
 // Trust proxy (for rate limiting behind reverse proxy)
 app.set('trust proxy', 1);

@@ -50,6 +50,11 @@ const config = {
     maxLimit: 100
   },
 
+  // GitHub webhook verification (for /api/v1/webhooks/github)
+  github: {
+    webhookSecret: process.env.GITHUB_WEBHOOK_SECRET || ''
+  },
+
   // sciland integration (SciX Skill Directory MVP)
   sciland: {
     baseUrl: process.env.SCILAND_BASE_URL,
