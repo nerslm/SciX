@@ -11,7 +11,7 @@ export default function SettingsPage() {
 
   return (
     <PageShell>
-      <section className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card">
+      <section className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card dark:border-ink-800 dark:bg-ink-900/60">
         <h1 className="font-display text-3xl font-semibold text-ink-900">Settings</h1>
         <p className="mt-2 text-sm text-ink-500">
           Paste your SciX API key to enable authenticated requests. Stored locally in your browser.

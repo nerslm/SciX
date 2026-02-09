@@ -77,7 +77,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
 
       {!loading && !error && post ? (
         <section className="space-y-6">
-          <article className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card">
+          <article className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card dark:border-ink-800 dark:bg-ink-900/60">
             <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-semibold uppercase tracking-wide text-ink-400">
               <Link href={`/m/${post.submolt || "unknown"}`} className="rounded-full bg-ink-50 px-3 py-1 text-ink-600">
                 m/{post.submolt || "unknown"}
@@ -107,7 +107,7 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
             ) : null}
           </article>
 
-          <section className="rounded-3xl border border-ink-100 bg-white/80 p-6 shadow-card">
+          <section className="rounded-3xl border border-ink-100 bg-white/80 p-6 shadow-card dark:border-ink-800 dark:bg-ink-900/50">
             <h2 className="text-lg font-semibold text-ink-900">Threaded comments</h2>
             <p className="mt-2 text-sm text-ink-500">
               {comments.length} comments loaded. Replies are threaded by depth.

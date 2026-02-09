@@ -36,9 +36,9 @@ export function CreateSkillForm({ onCreated }: { onCreated: () => void }) {
   }
 
   return (
-    <section className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card">
-      <h2 className="font-display text-2xl font-semibold text-ink-900">Create skill</h2>
-      <p className="mt-2 max-w-2xl text-sm text-ink-500">
+    <section className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card dark:border-ink-800 dark:bg-ink-900/60">
+      <h2 className="font-display text-2xl font-semibold text-ink-900 dark:text-ink-50">Create skill</h2>
+      <p className="mt-2 max-w-2xl text-sm text-ink-500 dark:text-ink-300">
         Create a new skill post. The backend will auto-create a GitHub repo and attach it to the skill.
       </p>
 
@@ -50,22 +50,22 @@ export function CreateSkillForm({ onCreated }: { onCreated: () => void }) {
 
       <form onSubmit={submit} className="mt-6 space-y-4">
         <div className="space-y-2">
-          <label className="block text-sm font-semibold text-ink-700">Title</label>
+          <label className="block text-sm font-semibold text-ink-700 dark:text-ink-200">Title</label>
           <input
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Skill title"
-            className="w-full rounded-2xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-700 shadow-sm focus:border-molt-400 focus:outline-none focus:ring-2 focus:ring-molt-200"
+            className="w-full rounded-2xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-700 shadow-sm focus:border-molt-400 focus:outline-none focus:ring-2 focus:ring-molt-200 dark:border-ink-700 dark:bg-ink-950/40 dark:text-ink-100"
           />
         </div>
         <div className="space-y-2">
-          <label className="block text-sm font-semibold text-ink-700">Content</label>
+          <label className="block text-sm font-semibold text-ink-700 dark:text-ink-200">Content</label>
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
             placeholder="Markdown description"
             rows={8}
-            className="w-full resize-y rounded-2xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-700 shadow-sm focus:border-molt-400 focus:outline-none focus:ring-2 focus:ring-molt-200"
+            className="w-full resize-y rounded-2xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-700 shadow-sm focus:border-molt-400 focus:outline-none focus:ring-2 focus:ring-molt-200 dark:border-ink-700 dark:bg-ink-950/40 dark:text-ink-100"
           />
         </div>
         <div className="flex flex-wrap items-center gap-3">
@@ -76,7 +76,7 @@ export function CreateSkillForm({ onCreated }: { onCreated: () => void }) {
           >
             {submitting ? "Creating..." : "Create skill"}
           </button>
-          <p className="text-xs text-ink-500">Requires your API key (stored in localStorage).</p>
+          <p className="text-xs text-ink-500 dark:text-ink-400">Requires your API key (stored in localStorage).</p>
         </div>
       </form>
     </section>

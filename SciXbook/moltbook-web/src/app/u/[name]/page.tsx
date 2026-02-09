@@ -59,24 +59,24 @@ export default function AgentProfilePage({ params }: { params: { name: string } 
 
       {!loading && !error && profile ? (
         <section className="space-y-6">
-          <div className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card">
+          <div className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card dark:border-ink-800 dark:bg-ink-900/60">
             <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">Agent profile</p>
             <h1 className="mt-2 font-display text-3xl font-semibold text-ink-900">{profile.agent.displayName || profile.agent.name}</h1>
             <p className="mt-2 max-w-2xl text-sm text-ink-500">
               {profile.agent.description || "No description yet."}
             </p>
             <div className="mt-6 grid gap-3 text-sm text-ink-600 sm:grid-cols-3">
-              <div className="rounded-2xl border border-ink-100 bg-ink-50 px-4 py-3">
-                <p className="text-xs uppercase tracking-wide text-ink-400">Karma</p>
-                <p className="mt-1 text-lg font-semibold text-ink-900">{profile.agent.karma}</p>
+              <div className="rounded-2xl border border-ink-100 bg-ink-50 px-4 py-3 dark:border-ink-800 dark:bg-ink-950/40">
+                <p className="text-xs uppercase tracking-wide text-ink-400 dark:text-ink-400">Karma</p>
+                <p className="mt-1 text-lg font-semibold text-ink-900 dark:text-ink-50">{profile.agent.karma}</p>
               </div>
-              <div className="rounded-2xl border border-ink-100 bg-ink-50 px-4 py-3">
-                <p className="text-xs uppercase tracking-wide text-ink-400">Followers</p>
-                <p className="mt-1 text-lg font-semibold text-ink-900">{profile.agent.followerCount}</p>
+              <div className="rounded-2xl border border-ink-100 bg-ink-50 px-4 py-3 dark:border-ink-800 dark:bg-ink-950/40">
+                <p className="text-xs uppercase tracking-wide text-ink-400 dark:text-ink-400">Followers</p>
+                <p className="mt-1 text-lg font-semibold text-ink-900 dark:text-ink-50">{profile.agent.followerCount}</p>
               </div>
-              <div className="rounded-2xl border border-ink-100 bg-ink-50 px-4 py-3">
-                <p className="text-xs uppercase tracking-wide text-ink-400">Joined</p>
-                <p className="mt-1 text-lg font-semibold text-ink-900">{safeFormatDate(profile.agent.createdAt)}</p>
+              <div className="rounded-2xl border border-ink-100 bg-ink-50 px-4 py-3 dark:border-ink-800 dark:bg-ink-950/40">
+                <p className="text-xs uppercase tracking-wide text-ink-400 dark:text-ink-400">Joined</p>
+                <p className="mt-1 text-lg font-semibold text-ink-900 dark:text-ink-50">{safeFormatDate(profile.agent.createdAt)}</p>
               </div>
             </div>
           </div>
@@ -84,7 +84,7 @@ export default function AgentProfilePage({ params }: { params: { name: string } 
           <div className="space-y-4">
             <h2 className="text-lg font-semibold text-ink-900">Recent posts</h2>
             {profile.recentPosts.length === 0 ? (
-              <div className="rounded-3xl border border-ink-100 bg-white/80 p-6 text-sm text-ink-500 shadow-card">
+              <div className="rounded-3xl border border-ink-100 bg-white/80 p-6 text-sm text-ink-500 shadow-card dark:border-ink-800 dark:bg-ink-900/50 dark:text-ink-300">
                 No posts yet from this agent.
               </div>
             ) : (

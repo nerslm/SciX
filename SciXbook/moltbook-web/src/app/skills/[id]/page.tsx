@@ -59,13 +59,16 @@ export default function SkillDetailPage() {
 
   return (
     <PageShell>
-      <section className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card">
+      <section className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card dark:border-ink-800 dark:bg-ink-900/60">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h1 className="font-display text-3xl font-semibold text-ink-900">Skill detail</h1>
-            <p className="mt-2 text-sm text-ink-500">View the full content and metrics for a single skill.</p>
+            <h1 className="font-display text-3xl font-semibold text-ink-900 dark:text-ink-50">Skill detail</h1>
+            <p className="mt-2 text-sm text-ink-500 dark:text-ink-300">View the full content and metrics for a single skill.</p>
           </div>
-          <Link href="/" className="rounded-full bg-ink-50 px-4 py-2 text-sm font-semibold text-ink-700 hover:bg-ink-100">
+          <Link
+            href="/"
+            className="rounded-full bg-ink-50 px-4 py-2 text-sm font-semibold text-ink-700 hover:bg-ink-100 dark:border dark:border-ink-700 dark:bg-ink-800/40 dark:text-ink-200 dark:hover:bg-ink-800/60"
+          >
             ← Back
           </Link>
         </div>
@@ -81,40 +84,45 @@ export default function SkillDetailPage() {
       ) : null}
 
       {!loading && !error && skill ? (
-        <section className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card">
-          <h2 className="font-display text-2xl font-semibold text-ink-900">{skill.title}</h2>
+        <section className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card dark:border-ink-800 dark:bg-ink-900/60">
+          <h2 className="font-display text-2xl font-semibold text-ink-900 dark:text-ink-50">{skill.title}</h2>
 
-          <div className="mt-4 grid grid-cols-1 gap-3 text-sm text-ink-600 md:grid-cols-2">
+          <div className="mt-4 grid grid-cols-1 gap-3 text-sm text-ink-600 md:grid-cols-2 dark:text-ink-300">
             <div>
-              <span className="font-semibold text-ink-800">Merged PRs:</span> {mergedPrCount}
+              <span className="font-semibold text-ink-800 dark:text-ink-100">Merged PRs:</span> {mergedPrCount}
             </div>
             <div>
-              <span className="font-semibold text-ink-800">Repo:</span>{" "}
+              <span className="font-semibold text-ink-800 dark:text-ink-100">Repo:</span>{" "}
               {skill.url ? (
-                <a href={skill.url} target="_blank" rel="noreferrer" className="font-semibold text-molt-700 underline underline-offset-4">
+                <a
+                  href={skill.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-molt-700 underline underline-offset-4"
+                >
                   {skill.url}
                 </a>
               ) : (
-                <span className="text-ink-400">Not available</span>
+                <span className="text-ink-400 dark:text-ink-500">Not available</span>
               )}
             </div>
             <div>
-              <span className="font-semibold text-ink-800">last_activity_at:</span> {skill.metrics?.last_activity_at ?? "—"}
+              <span className="font-semibold text-ink-800 dark:text-ink-100">last_activity_at:</span> {skill.metrics?.last_activity_at ?? "—"}
             </div>
             <div>
-              <span className="font-semibold text-ink-800">updated_at:</span> {skill.metrics?.updated_at ?? "—"}
+              <span className="font-semibold text-ink-800 dark:text-ink-100">updated_at:</span> {skill.metrics?.updated_at ?? "—"}
             </div>
             <div>
-              <span className="font-semibold text-ink-800">repo_full_name:</span> {skill.metrics?.repo_full_name ?? "—"}
+              <span className="font-semibold text-ink-800 dark:text-ink-100">repo_full_name:</span> {skill.metrics?.repo_full_name ?? "—"}
             </div>
             <div>
-              <span className="font-semibold text-ink-800">open_pr_count:</span> {skill.metrics?.open_pr_count ?? "—"}
+              <span className="font-semibold text-ink-800 dark:text-ink-100">open_pr_count:</span> {skill.metrics?.open_pr_count ?? "—"}
             </div>
           </div>
 
           <div className="mt-6">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-ink-400">Content</h3>
-            <pre className="mt-3 whitespace-pre-wrap rounded-2xl border border-ink-100 bg-ink-50 p-4 text-sm text-ink-800">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-ink-400 dark:text-ink-400">Content</h3>
+            <pre className="mt-3 whitespace-pre-wrap rounded-2xl border border-ink-100 bg-ink-50 p-4 text-sm text-ink-800 dark:border-ink-800 dark:bg-ink-950/40 dark:text-ink-100">
               {skill.content}
             </pre>
           </div>

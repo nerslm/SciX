@@ -47,3 +47,9 @@ a {
   background: rgba(36, 48, 72, 0.25);
   border-radius: 999px;
 }
+
+/* Dark-mode overrides for the light hero gradient */
+html.dark .bg-hero-gradient {
+  background-image: none;
+  background-color: var(--scix-bg);
+}

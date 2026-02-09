@@ -2,7 +2,7 @@ import { AlertTriangle } from "lucide-react";
 
 export function LoadingState({ label = "Loading..." }: { label?: string }) {
   return (
-    <div className="rounded-3xl border border-ink-100 bg-white/70 p-6 text-sm font-semibold text-ink-500 shadow-card">
+    <div className="rounded-3xl border border-ink-100 bg-white/70 p-6 text-sm font-semibold text-ink-500 shadow-card dark:border-ink-800 dark:bg-ink-900/50 dark:text-ink-300">
       {label}
     </div>
   );

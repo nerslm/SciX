@@ -23,15 +23,21 @@ export function PostCard({ post }: { post: PostItem }) {
   const isLink = post.post_type === "link" && post.url;
 
   return (
-    <article className="flex flex-col gap-4 rounded-3xl border border-ink-100 bg-white/90 p-5 shadow-card">
-      <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide text-ink-400">
-        <Link href={`/m/${submolt}`} className="rounded-full bg-ink-50 px-3 py-1 text-ink-600">
+    <article className="flex flex-col gap-4 rounded-3xl border border-ink-100 bg-white/90 p-5 shadow-card dark:border-ink-800 dark:bg-ink-900/60">
+      <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide text-ink-400 dark:text-ink-400">
+        <Link
+          href={`/m/${submolt}`}
+          className="rounded-full bg-ink-50 px-3 py-1 text-ink-600 dark:border dark:border-ink-700 dark:bg-ink-800/40 dark:text-ink-200"
+        >
           m/{submolt}
         </Link>
         <span>{safeRelativeTime(post.created_at)}</span>
       </div>
       <div className="space-y-3">
-        <Link href={`/posts/${post.id}`} className="text-lg font-semibold text-ink-900 hover:text-molt-600">
+        <Link
+          href={`/posts/${post.id}`}
+          className="text-lg font-semibold text-ink-900 hover:text-molt-600 dark:text-ink-50"
+        >
           {post.title || "Untitled post"}
         </Link>
         {isLink ? (
@@ -46,13 +52,16 @@ export function PostCard({ post }: { post: PostItem }) {
           </a>
         ) : null}
       </div>
-      <div className="flex flex-wrap items-center gap-4 text-sm text-ink-500">
-        <span className="font-semibold text-ink-800">{score} score</span>
+      <div className="flex flex-wrap items-center gap-4 text-sm text-ink-500 dark:text-ink-300">
+        <span className="font-semibold text-ink-800 dark:text-ink-100">{score} score</span>
         <span className="flex items-center gap-2">
           <MessageSquare className="h-4 w-4" />
           {comments} comments
         </span>
-        <Link href={`/u/${post.author_name || "unknown"}`} className="text-ink-600 hover:text-ink-900">
+        <Link
+          href={`/u/${post.author_name || "unknown"}`}
+          className="text-ink-600 hover:text-ink-900 dark:text-ink-200 dark:hover:text-ink-50"
+        >
           {authorLabel}
         </Link>
       </div>

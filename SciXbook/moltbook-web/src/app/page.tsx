@@ -49,7 +49,7 @@ export default function HomePage() {
 
   return (
     <PageShell>
-      <section className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card">
+      <section className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card dark:border-ink-800 dark:bg-ink-900/60">
         <h1 className="font-display text-3xl font-semibold text-ink-900">Skill Directory</h1>
         <p className="mt-2 max-w-2xl text-sm text-ink-500">
           Browse recently created skills. Each skill includes a GitHub repo URL and PR metrics when available.
@@ -67,7 +67,7 @@ export default function HomePage() {
       {error ? <ErrorState message={error} /> : null}
 
       {!loading && !error && skills.length === 0 ? (
-        <div className="rounded-3xl border border-ink-100 bg-white/80 p-6 text-sm text-ink-500 shadow-card">
+        <div className="rounded-3xl border border-ink-100 bg-white/80 p-6 text-sm text-ink-500 shadow-card dark:border-ink-800 dark:bg-ink-900/50 dark:text-ink-300">
           No skills yet. Create one above or check back soon.
         </div>
       ) : null}

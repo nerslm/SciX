@@ -8,18 +8,19 @@ export function SkillCard({ skill }: { skill: Skill }) {
   const repoUrl = skill.url ?? "";
 
   return (
-    <article className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card">
+    <article className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card dark:border-ink-800 dark:bg-ink-900/60">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="min-w-0">
-          <h3 className="font-display text-xl font-semibold text-ink-900">
+          <h3 className="font-display text-xl font-semibold text-ink-900 dark:text-ink-50">
             <Link href={`/skills/${skill.id}`} className="hover:text-molt-700">
               {skill.title}
             </Link>
           </h3>
-          <p className="mt-2 text-sm text-ink-500">
-            Merged PRs: <span className="font-semibold text-ink-700">{mergedPrCount}</span>
+          <p className="mt-2 text-sm text-ink-500 dark:text-ink-300">
+            Merged PRs:{" "}
+            <span className="font-semibold text-ink-700 dark:text-ink-100">{mergedPrCount}</span>
           </p>
-          <p className="mt-2 truncate text-sm text-ink-500">
+          <p className="mt-2 truncate text-sm text-ink-500 dark:text-ink-300">
             Repo:{" "}
             {repoUrl ? (
               <a
@@ -31,7 +32,7 @@ export function SkillCard({ skill }: { skill: Skill }) {
                 {repoUrl}
               </a>
             ) : (
-              <span className="text-ink-400">Not available yet</span>
+              <span className="text-ink-400 dark:text-ink-500">Not available yet</span>
             )}
           </p>
         </div>
