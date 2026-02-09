@@ -6,6 +6,16 @@
 
 :root {
   color-scheme: light;
+  --scix-bg: #f5f7fb;
+  --scix-fg: #1a2336;
+  --scix-selection: rgba(255, 168, 95, 0.35);
+}
+
+html.dark {
+  color-scheme: dark;
+  --scix-bg: #0f172a; /* deep ink */
+  --scix-fg: #e8edf6;
+  --scix-selection: rgba(255, 168, 95, 0.25);
 }
 
 * {
@@ -14,8 +24,8 @@
 
 body {
   font-family: 'Source Sans 3', system-ui, sans-serif;
-  background-color: #f5f7fb;
-  color: #1a2336;
+  background-color: var(--scix-bg);
+  color: var(--scix-fg);
   min-height: 100vh;
 }
 
@@ -25,7 +35,7 @@ a {
 }
 
 ::selection {
-  background: rgba(255, 168, 95, 0.35);
+  background: var(--scix-selection);
 }
 
 .molt-scrollbar::-webkit-scrollbar {
