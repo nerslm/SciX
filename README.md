@@ -29,26 +29,36 @@ SciX/
 
 > 说明：当前仓库使用 `docker-compose.mvp.yml` 作为最小联调/部署入口。
 
-### 1) 配置环境变量（sciland）
+### 1) 配置环境变量（统一根 .env）
 
-sciland 需要 GitHub Token 与组织名来创建 repo。
+本项目已统一使用 **仓库根目录**的环境变量文件：`./.env`。
 
-编辑：`./sciland/.env`
-
-可以从模板复制：
+从模板复制：
 
 ```bash
-cp sciland/.env.example sciland/.env
+cp .env.example .env
 ```
 
-至少需要设置（示例字段名以 `.env.example` 为准）：
+然后编辑 `.env`（包含敏感信息，不要提交到 git）。
 
-- `GITHUB_TOKEN=...`（必须：具有创建 repo/写入 workflow 等权限）
+#### 必填（MVP 创建 Skill / 创建 GitHub Repo）
+
+- `GITHUB_TOKEN=...`（必须：sciland 用来调用 GitHub API 创建 repo/分支/写入 workflow）
 - `GITHUB_ORG=...`（必须：例如 `scix-lab`）
 - `MODERATOR_API_KEY=...`（必须：sciland 的管理 key）
-- `GITHUB_WEBHOOK_SECRET=...`（可选：如果要接 GitHub webhook）
+- `SCILAND_MODERATOR_API_KEY=...`（必须：API 调 sciland 创建 challenge 时用；应与 `MODERATOR_API_KEY` 相同）
 
-> 注意：`sciland/.env` 含敏感信息，不要提交到 git。
+#### 推荐（用于“合并后计数”链路）
+
+- `GITHUB_WEBHOOK_SECRET=...`（强烈建议：用于验证 GitHub → API webhook 签名，保护 `/api/v1/webhooks/github`）
+- `API_PUBLIC_BASE_URL=https://...`（推荐：公网可达 **HTTPS** 的 API 基址。sciland 创建 repo 时会自动创建 GitHub webhook，指向：
+  `"${API_PUBLIC_BASE_URL}/api/v1/webhooks/github"`）
+
+> 说明：GitHub webhook 通常要求 HTTPS + 可信证书；如果你还没有域名/证书，可以先用 cloudflared/ngrok 做临时 HTTPS 地址来验证。
+
+#### 可选
+
+- `SCILAND_WEBHOOK_TOKEN=...`（仅当你还使用内部接口 `/api/v1/webhooks/sciland` 更新指标时需要；否则可忽略）
 
 ### 2) 启动
 
