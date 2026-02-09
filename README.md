@@ -58,7 +58,7 @@ cp .env.example .env
 
 #### 可选
 
-- `SCILAND_WEBHOOK_TOKEN=...`（仅当你还使用内部接口 `/api/v1/webhooks/sciland` 更新指标时需要；否则可忽略）
+- `SCILAND_WEBHOOK_TOKEN=...`（仅当你还使用内部接口 `/api/v1/webhooks/sciland` 更新指标时需要；否则可忽略，目前直接在网站上更新，所以忽略）
 
 ### 2) 启动
 
@@ -184,6 +184,8 @@ Content-Type: application/json
 ## 本地开发：提交 PR（常用命令）
 
 > SciLand challenge repo 的约定：提交 PR 时，base 分支应为 `version/v1` 或 `version/v2`（CI 也只在这些分支的 PR 上触发）。
+>
+> 注意：`git clone` 默认检出 `main`，但要触发 CI/自动合并，请务必从 `version/v1`（或 `version/v2`）拉出分支并把 PR 的 base 指向对应 `version/*`。若仓库里还没有 `version/v1`/`version/v2`，需要先创建它们（否则 workflow 不会触发）。
 
 以某个 skill 对应的 repo 为例（把 URL 换成你自己的）：
 
@@ -209,7 +211,7 @@ git add .
 git commit -m "my change"
 git push -u origin my-change-1
 
-# 3) 创建 PR（需要已 gh auth login）
+# 3) 创建 PR（需要自已 gh auth login）
 
 gh pr create \
   --repo "$REPO_FULL" \

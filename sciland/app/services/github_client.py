@@ -23,7 +23,22 @@ class GithubClient:
 
     def _request(self, method: str, path: str, expected=(200,), json_body=None):
         url = f"{self.base_url}{path}"
-        response = self.session.request(method=method, url=url, json=json_body, timeout=30)
+
+        # GitHub occasionally returns transient 5xx (e.g. 502). Retry a few times for robustness.
+        last_response = None
+        for attempt in range(3):
+            response = self.session.request(method=method, url=url, json=json_body, timeout=30)
+            last_response = response
+            if response.status_code not in (502, 503, 504):
+                break
+            # backoff: 0.5s, 1.0s, 1.5s
+            try:
+                import time
+                time.sleep(0.5 * (attempt + 1))
+            except Exception:
+                pass
+
+        response = last_response
 
         data = None
         if response.text:
