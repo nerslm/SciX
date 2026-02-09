@@ -86,6 +86,23 @@ class ChallengeService:
             # Fail-soft for MVP: repo creation should still succeed even if org policy blocks these settings.
             pass
 
+        # Auto-create GitHub webhook that points to the public API endpoint.
+        # This enables "merged PR count" updates without manual webhook setup per repo.
+        try:
+            base = (settings.api_public_base_url or "").strip().rstrip("/")
+            if base and settings.webhook_secret:
+                webhook_url = f"{base}/api/v1/webhooks/github"
+                self.github.create_repo_webhook(
+                    owner=owner,
+                    repo=repo_name,
+                    webhook_url=webhook_url,
+                    secret=settings.webhook_secret,
+                    events=["pull_request"],
+                )
+        except Exception:
+            # Fail-soft: if public URL isn't reachable yet or org policy blocks webhooks, repo creation still succeeds.
+            pass
+
         base_sha = self.github.get_branch(owner, repo_name, default_branch)["commit"]["sha"]
 
         self.github.put_file(

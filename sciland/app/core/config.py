@@ -14,6 +14,10 @@ class Settings(BaseSettings):
     moderator_api_key: str = Field("", env="MODERATOR_API_KEY")
     webhook_secret: str = Field("", env="GITHUB_WEBHOOK_SECRET")
 
+    # Public API base URL (HTTPS) that GitHub can reach.
+    # Used to auto-create GitHub repo webhooks pointing to API's /api/v1/webhooks/github.
+    api_public_base_url: str = Field("", env="API_PUBLIC_BASE_URL")
+
     challenge_repo_prefix: str = Field("challenge", env="CHALLENGE_REPO_PREFIX")
     version_branches: str = Field("version/v1,version/v2", env="VERSION_BRANCHES")
 

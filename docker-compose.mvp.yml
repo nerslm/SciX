@@ -21,7 +21,7 @@ services:
       context: ./sciland
       dockerfile: Dockerfile
     env_file:
-      - ./sciland/.env
+      - ./.env
     ports:
       - "8000:8000"
 
@@ -34,7 +34,7 @@ services:
       - redis
       - sciland
     env_file:
-      - ./sciland/.env
+      - ./.env
     environment:
       PORT: 3002
       NODE_ENV: development
@@ -44,9 +44,6 @@ services:
       BASE_URL: http://localhost:3002
       # sciland integration
       SCILAND_BASE_URL: http://sciland:8000
-      # Reuse sciland's moderator key for challenge creation
-      SCILAND_MODERATOR_API_KEY: replace-with-a-long-random-secret
-      SCILAND_WEBHOOK_TOKEN: local-webhook-token
     ports:
       - "3002:3002"
 

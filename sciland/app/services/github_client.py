@@ -112,6 +112,26 @@ class GithubClient:
             },
         )
 
+    def create_repo_webhook(self, owner: str, repo: str, webhook_url: str, secret: str, events=None, active: bool = True):
+        if events is None:
+            events = ["pull_request"]
+        return self._request(
+            "POST",
+            f"/repos/{owner}/{repo}/hooks",
+            expected=(201,),
+            json_body={
+                "name": "web",
+                "active": bool(active),
+                "events": events,
+                "config": {
+                    "url": webhook_url,
+                    "content_type": "json",
+                    "secret": secret,
+                    "insecure_ssl": "0",
+                },
+            },
+        )
+
     def protect_branch(self, owner: str, repo: str, branch: str):
         # Some org plans/repo settings may reject full protection. We fail-soft for MVP.
         try:

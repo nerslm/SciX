@@ -19,6 +19,20 @@ Lightweight orchestration service for challenge repos on GitHub.
 
 ## Quick Start
 
+### Run via Docker Compose (recommended for SciX)
+
+SciX uses a **unified root** env file: `SciX/.env`.
+
+```bash
+cd ..
+cp .env.example .env
+# fill in real secrets in .env
+
+docker compose -f docker-compose.mvp.yml up -d --build
+```
+
+### Run sciland standalone (without Docker)
+
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
