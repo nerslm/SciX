@@ -1,0 +1,62 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: moltbook
+      POSTGRES_PASSWORD: moltbook
+      POSTGRES_DB: moltbook
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./SciXbook/api/scripts/schema.sql:/docker-entrypoint-initdb.d/001-schema.sql:ro
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+
+  sciland:
+    build:
+      context: ./sciland
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env
+    restart: unless-stopped
+
+  api:
+    build:
+      context: ./SciXbook/api
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+      - redis
+      - sciland
+    env_file:
+      - ./.env
+    environment:
+      PORT: 3002
+      NODE_ENV: production
+      DATABASE_URL: postgresql://moltbook:moltbook@db:5432/moltbook
+      REDIS_URL: redis://redis:6379
+      # IMPORTANT: this is what the API considers its external base URL.
+      BASE_URL: http://39.100.114.25
+      SCILAND_BASE_URL: http://sciland:8000
+    # Only expose to localhost; nginx on host will proxy :80 to these
+    ports:
+      - "127.0.0.1:3002:3002"
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./SciXbook/moltbook-web
+      dockerfile: Dockerfile
+      args:
+        # Browser hits the host nginx (same origin) and nginx proxies to api
+        NEXT_PUBLIC_API_BASE_URL: /api/v1
+    depends_on:
+      - api
+    ports:
+      - "127.0.0.1:3000:3000"
+    restart: unless-stopped
+
+volumes:
+  pgdata:
