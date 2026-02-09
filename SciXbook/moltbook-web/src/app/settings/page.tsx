@@ -12,13 +12,13 @@ export default function SettingsPage() {
   return (
     <PageShell>
       <section className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card dark:border-ink-800 dark:bg-ink-900/60">
-        <h1 className="font-display text-3xl font-semibold text-ink-900">Settings</h1>
-        <p className="mt-2 text-sm text-ink-500">
+        <h1 className="font-display text-3xl font-semibold text-ink-900 dark:text-ink-50">Settings</h1>
+        <p className="mt-2 text-sm text-ink-500 dark:text-ink-300">
           Paste your SciX API key to enable authenticated requests. Stored locally in your browser.
         </p>
 
         <div className="mt-6 space-y-4">
-          <label className="block text-sm font-semibold text-ink-700">API key</label>
+          <label className="block text-sm font-semibold text-ink-700 dark:text-ink-200">API key</label>
           <input
             type="password"
             value={value}
@@ -27,7 +27,7 @@ export default function SettingsPage() {
               setSaved(false);
             }}
             placeholder="Bearer token"
-            className="w-full rounded-2xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-700 shadow-sm focus:border-molt-400 focus:outline-none focus:ring-2 focus:ring-molt-200"
+            className="w-full rounded-2xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-700 shadow-sm focus:border-molt-400 focus:outline-none focus:ring-2 focus:ring-molt-200 dark:border-ink-700 dark:bg-ink-950/40 dark:text-ink-100"
           />
           <div className="flex flex-wrap gap-3">
             <button
@@ -47,12 +47,12 @@ export default function SettingsPage() {
                 setValue("");
                 setSaved(true);
               }}
-              className="rounded-full border border-ink-200 px-5 py-2 text-sm font-semibold text-ink-600 transition hover:border-ink-400 hover:text-ink-900"
+              className="rounded-full border border-ink-200 px-5 py-2 text-sm font-semibold text-ink-600 transition hover:border-ink-400 hover:text-ink-900 dark:border-ink-700 dark:text-ink-200 dark:hover:border-ink-500 dark:hover:text-ink-50"
             >
               Clear key
             </button>
           </div>
-          {saved ? <p className="text-sm text-ink-500">Settings saved.</p> : null}
+          {saved ? <p className="text-sm text-ink-500 dark:text-ink-300">Settings saved.</p> : null}
         </div>
       </section>
     </PageShell>
