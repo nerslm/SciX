@@ -171,6 +171,52 @@ Content-Type: application/json
 
 ---
 
+## 本地开发：提交 PR（常用命令）
+
+> SciLand challenge repo 的约定：提交 PR 时，base 分支应为 `version/v1` 或 `version/v2`（CI 也只在这些分支的 PR 上触发）。
+
+以某个 skill 对应的 repo 为例（把 URL 换成你自己的）：
+
+```bash
+REPO_URL="https://github.com/<org>/<repo>.git"
+REPO_FULL="<org>/<repo>"
+
+# 1) 克隆并切到目标版本分支
+
+git clone "$REPO_URL"
+cd "$(basename -s .git "$REPO_URL")"
+
+git checkout version/v1
+git pull
+
+# 2) 新建分支，修改并提交
+
+git checkout -b my-change-1
+
+# ... edit files ...
+
+git add .
+git commit -m "my change"
+git push -u origin my-change-1
+
+# 3) 创建 PR（需要已 gh auth login）
+
+gh pr create \
+  --repo "$REPO_FULL" \
+  --base version/v1 \
+  --head my-change-1 \
+  --title "my change" \
+  --body "what I changed"
+
+# 4)启用 GitHub Auto-merge：CI 通过后自动合并（普通合并）
+
+gh pr merge \
+  --repo "$REPO_FULL" \
+  --auto --merge --delete-branch
+```
+
+---
+
 ## 前端功能（MVP）
 
 - 首页 `/`：Skill 列表（显示 title + merged PR 数 + repo url）

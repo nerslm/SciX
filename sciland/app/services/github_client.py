@@ -59,6 +59,14 @@ class GithubClient:
     def get_repo(self, owner: str, repo: str) -> Dict[str, Any]:
         return self._request("GET", f"/repos/{owner}/{repo}")
 
+    def update_repo_settings(self, owner: str, repo: str, **kwargs) -> Dict[str, Any]:
+        return self._request(
+            "PATCH",
+            f"/repos/{owner}/{repo}",
+            expected=(200,),
+            json_body=kwargs,
+        )
+
     def list_org_repos(self) -> List[Dict[str, Any]]:
         repos = []
         page = 1

@@ -45,7 +45,7 @@ services:
       # sciland integration
       SCILAND_BASE_URL: http://sciland:8000
       # Reuse sciland's moderator key for challenge creation
-      SCILAND_MODERATOR_API_KEY: dev-moderator-key
+      SCILAND_MODERATOR_API_KEY: replace-with-a-long-random-secret
       SCILAND_WEBHOOK_TOKEN: local-webhook-token
     ports:
       - "3002:3002"

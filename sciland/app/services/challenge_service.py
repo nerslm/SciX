@@ -69,6 +69,23 @@ class ChallengeService:
 
         owner = repo["owner"]["login"]
         default_branch = repo.get("default_branch", "main")
+
+        # Enable GitHub repo-level allow auto-merge + choose merge strategy defaults.
+        # Note: this does not enable auto-merge for each PR automatically; it just allows it.
+        try:
+            self.github.update_repo_settings(
+                owner=owner,
+                repo=repo_name,
+                allow_auto_merge=True,
+                allow_merge_commit=True,
+                allow_squash_merge=False,
+                allow_rebase_merge=False,
+                delete_branch_on_merge=True,
+            )
+        except Exception:
+            # Fail-soft for MVP: repo creation should still succeed even if org policy blocks these settings.
+            pass
+
         base_sha = self.github.get_branch(owner, repo_name, default_branch)["commit"]["sha"]
 
         self.github.put_file(
