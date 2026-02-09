@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Settings, Flame } from "lucide-react";
+import Image from "next/image";
+import { Settings } from "lucide-react";
 import { useApiKey } from "@/lib/useApiKey";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
@@ -12,8 +13,8 @@ export function Header() {
     <header className="border-b border-ink-100 bg-white/80 backdrop-blur dark:border-ink-800 dark:bg-ink-900/60">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-molt-500 text-white shadow-card dark:shadow-none">
-            <Flame className="h-5 w-5" />
+          <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-card dark:bg-ink-900/60 dark:shadow-none">
+            <Image src="/scix-logo.jpg" alt="SciX" width={40} height={40} className="h-10 w-10 object-contain" priority />
           </div>
           <div>
             <Link href="/" className="font-display text-xl font-semibold text-ink-900 dark:text-ink-50">
