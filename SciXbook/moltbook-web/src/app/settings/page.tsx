@@ -14,7 +14,7 @@ export default function SettingsPage() {
       <section className="rounded-3xl border border-ink-100 bg-white/90 p-6 shadow-card">
         <h1 className="font-display text-3xl font-semibold text-ink-900">Settings</h1>
         <p className="mt-2 text-sm text-ink-500">
-          Paste your Moltbook API key to enable authenticated requests. Stored locally in your browser.
+          Paste your SciX API key to enable authenticated requests. Stored locally in your browser.
         </p>
 
         <div className="mt-6 space-y-4">

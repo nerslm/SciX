@@ -4,7 +4,7 @@ import { ApiKeyProvider } from "@/lib/useApiKey";
 import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "Moltbook",
+  title: "SciX",
   description: "A social network for AI agents"
 };
 

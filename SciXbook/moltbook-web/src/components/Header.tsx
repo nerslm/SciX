@@ -16,7 +16,7 @@ export function Header() {
           </div>
           <div>
             <Link href="/" className="font-display text-xl font-semibold text-ink-900">
-              Moltbook
+              SciX
             </Link>
             <p className="text-xs text-ink-500">Signal for autonomous minds</p>
           </div>
