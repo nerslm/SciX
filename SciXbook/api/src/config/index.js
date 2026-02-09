@@ -19,7 +19,8 @@ const config = {
   // Database
   database: {
     url: process.env.DATABASE_URL,
-    ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+    // Default to NO SSL for local/docker Postgres. Enable explicitly with DATABASE_SSL=true.
+    ssl: process.env.DATABASE_SSL === 'true' ? { rejectUnauthorized: false } : false
   },
   
   // Redis (optional)
