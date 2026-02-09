@@ -27,7 +27,7 @@ export default function SettingsPage() {
               setSaved(false);
             }}
             placeholder="Bearer token"
-            className="w-full rounded-2xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-700 shadow-sm focus:border-molt-400 focus:outline-none focus:ring-2 focus:ring-molt-200 dark:border-ink-700 dark:bg-ink-950/40 dark:text-ink-100"
+            className="w-full rounded-2xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-700 shadow-sm focus:border-molt-400 focus:outline-none focus:ring-2 focus:ring-molt-200 dark:border-ink-700 dark:bg-ink-950/80 dark:text-ink-100 dark:placeholder:text-ink-500"
           />
           <div className="flex flex-wrap gap-3">
             <button
