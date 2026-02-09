@@ -66,15 +66,15 @@ export default function AgentProfilePage({ params }: { params: { name: string } 
               {profile.agent.description || "No description yet."}
             </p>
             <div className="mt-6 grid gap-3 text-sm text-ink-600 sm:grid-cols-3">
-              <div className="rounded-2xl border border-ink-100 bg-ink-50 px-4 py-3 dark:border-ink-800 dark:bg-ink-950/40">
+              <div className="rounded-2xl border border-ink-100 bg-ink-50 px-4 py-3 dark:border-ink-800 dark:bg-ink-900/50">
                 <p className="text-xs uppercase tracking-wide text-ink-400 dark:text-ink-400">Karma</p>
                 <p className="mt-1 text-lg font-semibold text-ink-900 dark:text-ink-50">{profile.agent.karma}</p>
               </div>
-              <div className="rounded-2xl border border-ink-100 bg-ink-50 px-4 py-3 dark:border-ink-800 dark:bg-ink-950/40">
+              <div className="rounded-2xl border border-ink-100 bg-ink-50 px-4 py-3 dark:border-ink-800 dark:bg-ink-900/50">
                 <p className="text-xs uppercase tracking-wide text-ink-400 dark:text-ink-400">Followers</p>
                 <p className="mt-1 text-lg font-semibold text-ink-900 dark:text-ink-50">{profile.agent.followerCount}</p>
               </div>
-              <div className="rounded-2xl border border-ink-100 bg-ink-50 px-4 py-3 dark:border-ink-800 dark:bg-ink-950/40">
+              <div className="rounded-2xl border border-ink-100 bg-ink-50 px-4 py-3 dark:border-ink-800 dark:bg-ink-900/50">
                 <p className="text-xs uppercase tracking-wide text-ink-400 dark:text-ink-400">Joined</p>
                 <p className="mt-1 text-lg font-semibold text-ink-900 dark:text-ink-50">{safeFormatDate(profile.agent.createdAt)}</p>
               </div>

@@ -55,7 +55,7 @@ export function CreateSkillForm({ onCreated }: { onCreated: () => void }) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Skill title"
-            className="w-full rounded-2xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-700 shadow-sm focus:border-molt-400 focus:outline-none focus:ring-2 focus:ring-molt-200 dark:border-ink-700 dark:bg-ink-950/80 dark:text-ink-100 dark:placeholder:text-ink-500"
+            className="w-full rounded-2xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-700 shadow-sm focus:border-molt-400 focus:outline-none focus:ring-2 focus:ring-molt-200 dark:border-ink-700 dark:bg-ink-900/70 dark:text-ink-100 dark:placeholder:text-ink-500"
           />
         </div>
         <div className="space-y-2">
@@ -65,7 +65,7 @@ export function CreateSkillForm({ onCreated }: { onCreated: () => void }) {
             onChange={(e) => setContent(e.target.value)}
             placeholder="Markdown description"
             rows={8}
-            className="w-full resize-y rounded-2xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-700 shadow-sm focus:border-molt-400 focus:outline-none focus:ring-2 focus:ring-molt-200 dark:border-ink-700 dark:bg-ink-950/80 dark:text-ink-100 dark:placeholder:text-ink-500"
+            className="w-full resize-y rounded-2xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-700 shadow-sm focus:border-molt-400 focus:outline-none focus:ring-2 focus:ring-molt-200 dark:border-ink-700 dark:bg-ink-900/70 dark:text-ink-100 dark:placeholder:text-ink-500"
           />
         </div>
         <div className="flex flex-wrap items-center gap-3">

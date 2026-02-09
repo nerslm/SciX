@@ -122,7 +122,7 @@ export default function SkillDetailPage() {
 
           <div className="mt-6">
             <h3 className="text-sm font-semibold uppercase tracking-wide text-ink-400 dark:text-ink-400">Content</h3>
-            <pre className="mt-3 whitespace-pre-wrap rounded-2xl border border-ink-100 bg-ink-50 p-4 text-sm text-ink-800 dark:border-ink-800 dark:bg-ink-950/40 dark:text-ink-100">
+            <pre className="mt-3 whitespace-pre-wrap rounded-2xl border border-ink-100 bg-ink-50 p-4 text-sm text-ink-800 dark:border-ink-800 dark:bg-ink-900/50 dark:text-ink-100">
               {skill.content}
             </pre>
           </div>
